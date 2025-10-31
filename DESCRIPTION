@@ -2,15 +2,24 @@ Package: MATH4753F25matthewhouston
 Type: Package
 Title: What the Package Does (Title Case)
 Version: 0.1.0
-Authors@R: c(
+Author: c(
     person(
-      "Jane", "Doe",
-      email = "jane@example.com",
+      "Matthew", "Houston",
+      email = "matbenhou@gmail.com",
       role = c("aut", "cre")
     )
   )
-Description: More about what it does (maybe more than one line).
-    Continuation lines should be indented.
-License: What license is it under?
+Description: Lab code for 2025.
+Maintainer: Matthew Houston <matbenhou@gmail.com>
+License: MIT + file LICENSE
 Encoding: UTF-8
 LazyData: true
+RoxygenNote: 7.3.2
+Suggests: 
+    knitr,
+    rmarkdown,
+    testthat (>= 3.0.0)
+VignetteBuilder: knitr
+Config/testthat/edition: 3
+Depends: 
+    R (>= 3.5)
