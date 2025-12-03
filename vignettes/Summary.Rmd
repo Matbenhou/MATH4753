@@ -1,0 +1,57 @@
+---
+title: "Summary"
+output: rmarkdown::html_vignette
+vignette: >
+  %\VignetteIndexEntry{Summary}
+  %\VignetteEngine{knitr::rmarkdown}
+  %\VignetteEncoding{UTF-8}
+---
+
+```{r, include = FALSE}
+knitr::opts_chunk$set(
+  collapse = TRUE,
+  comment = "#>"
+)
+```
+
+```{r setup}
+library(MATH4753F25matthewhouston)
+```
+
+# Function 1: mycltmv
+
+Shows the central limit theorem in work through the use of a uniform distribution.
+
+```{r}
+obj = MATH4753F25matthewhouston::mycltmv(n = 30, iter = 10000, a = 4, b = 6)
+```
+
+# Function 2: myNCurve
+
+Creates a curve of a normal distribution who's area is the probability between zero and a
+
+```{r}
+MATH4753F25matthewhouston::myncurve(a = 5, mu = 4, sigma = 1)
+```
+
+# Function 3: Birthday
+
+Finds the probability that two people share the same birthday given a vector n.
+
+```{r}
+MATH4753F25matthewhouston::birthday(10:20)
+```
+
+# Function 4: myFirstFunction
+
+Returns a list of x and y, where y = x^2
+
+```{r}
+MATH4753F25matthewhouston::myFirstFunction(1:30)
+```
+
+
+
+
+
+

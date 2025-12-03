@@ -1,16 +1,16 @@
-#' World Health Organization TB data
+#' DDT Fish data set
 #'
-#' A subset of data from the World Health Organization Global Tuberculosis
-#' Report ...
+#' A report on fish and their given levels of DDT found inside of them
 #'
 #' @format ## `who`
-#' A data frame with 7,240 rows and 60 columns:
+#' A data frame with 144 rows and 6 columns:
 #' \describe{
-#'   \item{country}{Country name}
-#'   \item{iso2, iso3}{2 & 3 letter ISO country codes}
-#'   \item{year}{Year}
+#'   \item{RIVER}{Where the fish was found}
+#'   \item{MILE}{The mile of river where it was found}
+#'   \item{SPECIES}{The species of fish which was caught}
+#'   \item{LENGTH, WEIGHT}{The length and weight of the caught fish}
+#'   \item{DDT}{DDT found in the fish}
 #'   ...
 #' }
-#' @source <https://www.who.int/teams/global-tuberculosis-programme/data>
 "ddt"
 

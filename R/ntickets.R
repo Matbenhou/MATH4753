@@ -12,7 +12,7 @@ ntickets <- function(N = 200, gamma = 0.02, prob = 0.95){
 
   normNTickets <-function(x)
   {
-    -1*(pnorm(N+0.5, x*prob, sqrt(x*prob*(1-prob))) -1 + gamma)
+    -1*(stats::pnorm(N+0.5, x*prob, sqrt(x*prob*(1-prob))) -1 + gamma)
   }
 
 
@@ -23,7 +23,7 @@ ntickets <- function(N = 200, gamma = 0.02, prob = 0.95){
 
   ## Discrete Case
 
-  obj <- -1*(pbinom(N, vec, prob) -1 + gamma)
+  obj <- -1*(stats::pbinom(N, vec, prob) -1 + gamma)
   ab = abs(obj)
 
 
@@ -35,10 +35,10 @@ ntickets <- function(N = 200, gamma = 0.02, prob = 0.95){
   plot(x = vec, y = obj, type = "b", pch = 21,
        xlab = "n", ylab = "Objective", main = "Objective vs n to find optimal ticket sales",
        sub = discsub)
-  lines(x = c(lower,upper), y = c(0,0), col = "Blue") #Zero Line
+  graphics::lines(x = c(lower,upper), y = c(0,0), col = "Blue") #Zero Line
 
-  lines(x = c(vec[minIndex], vec[minIndex]), y = c(-1, 1), col = "Red")
-  lines(x = c(lower, upper), y = c(obj[minIndex], obj[minIndex]), col = "Red")
+  graphics::lines(x = c(vec[minIndex], vec[minIndex]), y = c(-1, 1), col = "Red")
+  graphics::lines(x = c(lower, upper), y = c(obj[minIndex], obj[minIndex]), col = "Red")
 
 
 
@@ -47,19 +47,19 @@ ntickets <- function(N = 200, gamma = 0.02, prob = 0.95){
   #pnorm(N, vec*prob, sqrt(vec*prob*(1-prob))) - 1 + gamma
 
 
-  root = (uniroot(normNTickets, interval = c(lower,upper)))$root
+  root = (stats::uniroot(normNTickets, interval = c(lower,upper)))$root
 
   consub = paste(str, ", root =", root)
 
-  curve(normNTickets(x),
+  graphics::curve(normNTickets(x),
         from = lower, to = upper,
         xlab = "n", ylab = "Objective", main = "Objective vs n to find optimal ticket sales",
         sub = consub)
 
-  lines(x = c(lower,upper), y = c(0,0), col = "Blue") #Zero Line
+  graphics::lines(x = c(lower,upper), y = c(0,0), col = "Blue") #Zero Line
 
-  lines(x = c(root,root), y = c(-1, 1), col = "Red")
-  points(root,normNTickets(root), pch = 21, bg = "Red", cex = 1)
+  graphics::lines(x = c(root,root), y = c(-1, 1), col = "Red")
+  graphics::points(root,normNTickets(root), pch = 21, bg = "Red", cex = 1)
 
   returnlist = list(nd= vec[minIndex],nc = root,N = N, prob = prob, gamma = gamma)
 

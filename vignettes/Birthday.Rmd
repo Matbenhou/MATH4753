@@ -1,0 +1,49 @@
+---
+title: "Birthday"
+output: rmarkdown::html_vignette
+vignette: >
+  %\VignetteIndexEntry{Birthday}
+  %\VignetteEngine{knitr::rmarkdown}
+  %\VignetteEncoding{UTF-8}
+---
+
+```{r, include = FALSE}
+knitr::opts_chunk$set(
+  collapse = TRUE,
+  comment = "#>"
+)
+```
+
+```{r setup}
+library(MATH4753F25matthewhouston)
+```
+
+# 1 Math derivation
+
+
+$$ P(A) = 1 - \frac{_{365}P_n}{365^n} $$
+
+
+# 2 Reformulation for lfactorial and lchoose
+
+$$ P(B) = \frac{_{365}P_n}{365^n} $$
+
+$$ P(B)) = \frac{365!}{(365-n)!log365^n} $$
+$$ log(P(B)) = log(\frac{365!}{(365-n)!log365^n}) $$
+$$ log(P(B)) = log(365!) - {log((365-n)!) - n log(365)} $$
+$$ log(P(B)) = lfacotrial(365) - {lfacotrial(365-n) - n log(365)} $$
+$$ P(A) = 1 - exp(log(P(B))) $$
+$$ P(A) = 1 - exp(lfacotrial(365) - lfacotrial(365-n) - n log(365)) $$
+
+# 3
+
+P(A) = 1 - exp(lfactorial(365) - lfactorial(365-n) - n*log(365))
+
+# 4
+
+```{r}
+1 - exp(lfactorial(365) - lfactorial(365-23) - 23*log(365))
+
+MATH4753F25matthewhouston::birthday(20:25)
+```
+
